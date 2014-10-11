@@ -1,5 +1,8 @@
 <?php
-
+/**
+ * Request Class
+ * Check the url controller, method, and params.
+ */
 class Request {
 
     protected $url;
@@ -95,8 +98,16 @@ class Request {
         }
 
         require $controllerFileName;
-
         $controller = new $controllerClassName();
+
+        if (!method_exists($controller, $methodName)) {
+            require DIR_CONTROLLERS.'ErrorController.php';
+            $controller = new ErrorController();
+            $response = $controller->index();
+            $this->executeResponse($response);
+            header("HTTP/1.0 404 Not Found");
+            exit;
+        }
 
         $response = call_user_func_array([$controller, $methodName], $params);
 

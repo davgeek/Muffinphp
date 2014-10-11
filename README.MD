@@ -38,7 +38,8 @@ server {
         server_name domain.com;
 
         location / {
-            try_files $uri $uri/ /index.php?q=$uri&$args;
+            rewrite ^/([^?]*)(?:\?(.*))? /index.php?url=$1&$2;
+            rewrite ^/ /index.php;
         }
      
         location ~ \.php$ {
