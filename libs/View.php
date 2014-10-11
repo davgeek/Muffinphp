@@ -7,17 +7,30 @@ class View extends Response {
     protected $template;
     protected $vars = array();
 
+    /**
+     * Constructor
+     * @param String $template template name
+     * @param array  $vars     vars sends to view
+     */
     public function __construct($template, $vars = array())
     {
         $this->template = $template;
         $this->vars = $vars;
     }
 
+    /**
+     * Method getTemplate
+     * @return String template name
+     */
     public function getTemplate()
     {
         return $this->template;
     }
 
+    /**
+     * Method getVars
+     * @return array vars of the intance
+     */
     public function getVars()
     {
         return $this->vars;
@@ -45,6 +58,10 @@ class View extends Response {
         $this->vars[$var] = $value;
     }
 
+    /**
+     * Method execute
+     * prepare the view response
+     */
     public function execute()
     {
         $template = $this->getTemplate();

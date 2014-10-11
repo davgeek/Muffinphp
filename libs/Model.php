@@ -6,6 +6,10 @@ class Model {
 
 	protected $db;
 
+	/**
+	 * Constructor for Model
+	 * set the conection to DB whit mysqli driver.
+	 */
 	public function __construct()
 	{
 
