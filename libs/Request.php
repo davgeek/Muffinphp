@@ -8,9 +8,9 @@ class Request {
 
     protected $url;
     protected $controller;
-    protected $defaultController = 'home';
+    protected $defaultController = DEF_CONTROLLER;
     protected $method;
-    protected $defaultMethod = 'index';
+    protected $defaultMethod = DEF_METHOD;
     protected $params = array();
 
     public function __construct($url)
@@ -123,6 +123,20 @@ class Request {
     }
 
     /**
+     * Method errorResponse
+     * Show an error header
+     */
+    public function errorRespose($errorType)
+    {
+        require DIR_CONTROLLERS.'ErrorController.php';
+        $controller = new ErrorController();
+        $response = $controller->index();
+        $this->executeResponse($response);
+        header("HTTP/1.0 $errorType Not Found");
+        exit;
+    }
+
+    /**
      * Method execute
      * execute the respose object
      */
@@ -130,28 +144,18 @@ class Request {
     {
         $controllerClassName = $this->getControllerClassName();
         $controllerFileName  = $this->getControllerFileName();
-        $methodName    = $this->getMethodName();
+        $methodName          = $this->getMethodName();
         $params              = $this->getParams();
 
         if (!file_exists($controllerFileName)) {
-            require DIR_CONTROLLERS.'ErrorController.php';
-            $controller = new ErrorController();
-            $response = $controller->index();
-            $this->executeResponse($response);
-            header("HTTP/1.0 404 Not Found");
-            exit;
+            $this->errorRespose(404);
         }
 
         require $controllerFileName;
         $controller = new $controllerClassName();
 
         if (!method_exists($controller, $methodName)) {
-            require DIR_CONTROLLERS.'ErrorController.php';
-            $controller = new ErrorController();
-            $response = $controller->index();
-            $this->executeResponse($response);
-            header("HTTP/1.0 404 Not Found");
-            exit;
+            $this->errorRespose(404);
         }
 
         $response = call_user_func_array([$controller, $methodName], $params);
@@ -170,7 +174,7 @@ class Request {
             $response->execute();
         }elseif (is_string($response)) {
             echo $response;
-        }elseif(is_array($response)) {
+        }elseif (is_array($response)) {
             echo json_encode($response);
         }else {
             exit('Invalid Response');

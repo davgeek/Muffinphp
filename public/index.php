@@ -11,7 +11,7 @@
 // Config File
 require '../app/config/app.php';
 
-// Error Diplay: Confit at app/config/app.php
+// Error Diplay: Confitg at app/config/app.php
 ini_set('display_errors', DEBUG);
 error_reporting(E_ALL);
 

@@ -13,6 +13,8 @@
  */
 const URL = 'http://localhost/muffinphp/public/';
 const DEBUG = true;
+const DEF_CONTROLLER = 'home';
+const DEF_METHOD = 'index';
 
 
 /**
