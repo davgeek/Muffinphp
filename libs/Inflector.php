@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Inflector miscellaneous methods
  */
@@ -8,8 +9,8 @@ class Inflector {
      * Method camel
      * Convert any string to a camel case, 
      * first chart of word to Uppercase.
-     * @param  [type] $value [description]
-     * @return [type]        [description]
+     * @param  String $value word
+     * @return String       modified
      */
     public static function camel($value)
     {
@@ -26,8 +27,8 @@ class Inflector {
      * Method lowerCamel
      * Convert any string to a camel case,
      * first chart of word to Lowercase.
-     * @param  [type] $value [description]
-     * @return [type]        [description]
+     * @param  String $value word
+     * @return String       modified
      */
     public static function lowerCamel($value)
     {

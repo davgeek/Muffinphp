@@ -1,4 +1,5 @@
 <?php
+
 /*
 * Model father class for the DB connection.
 */
@@ -16,10 +17,11 @@ class Model {
 		$this->db = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
 
 		if($this->db->connect_errno ) {
-			echo "MySQL Error NOT connected: ". $this->db->connect_errno;
+			trigger_error("MySQL Error NOT connected: ". $this->db->connect_errno, E_USER_WARNING);
 			return;
 		}
 
 		$this->db->set_charset(DB_CHAR);
+
 	}
 }

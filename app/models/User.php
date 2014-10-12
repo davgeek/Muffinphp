@@ -18,10 +18,7 @@ class User extends Model {
 	// Method for add user.
 	public function addUser($name,$email) 
 	{
-
-		$stmt = $this->db->prepare('INSERT INTO '.$this->table.'(name, email) VALUES (?, ?)');
-		$stmt->bind_param('ss', $name ,$email);
-		$stmt->execute();
-
+		$this->db->query("INSERT INTO $this->table (name, email) VALUES ('".$name."','".$email."')");
 	}
+	
 }

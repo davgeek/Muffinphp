@@ -18,12 +18,8 @@ error_reporting(E_ALL);
 // Starter file
 require_once '../loader/init.php';
 
-// Get the url context
-if (empty($_GET['url'])) {
-    $url = "";
-}else {
-    $url = $_GET['url'];
-}
+// Get the url content
+(empty($_GET['url'])) ? $url = null : $url = $_GET['url'];
 
 // The request Object
 $request = new Request($url);

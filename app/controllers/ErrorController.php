@@ -1,4 +1,5 @@
 <?php
+
 /**
  * ErrorController for handle 404 errors and others.
  */

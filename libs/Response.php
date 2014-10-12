@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Respose abstract class
  */
