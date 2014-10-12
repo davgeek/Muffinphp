@@ -9,13 +9,16 @@
 /******************************************************/
 
 /**
- * Debug Config
+ * App Config
  */
+const URL = 'http://localhost/muffinphp/public/';
 const DEBUG = true;
+
 
 /**
  * Database Config
  */
+const DB = true; // Set true or false 
 define('DB_HOST', 'localhost');
 define('DB_USER', 'root');
 define('DB_PASS', '');

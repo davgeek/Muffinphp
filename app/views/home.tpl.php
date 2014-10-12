@@ -8,5 +8,5 @@ iVBORw0KGgoAAAANSUhEUgAAAQAAAAEACAQAAAD2e2DtAAAI30lEQVR4AezBgQAAAACAoP2pF6kCAAAA
 	<h1>Muffin PHP v0.1</h1>
 	<h2>PHP Micro Framework</h2>
 	<h3>by <a href="https://twitter.com/davgeek" title="DavGeek">@DavGeek</a></h3>
-	<a href="#" title="Docs">Docs v0.1</a>
+	<a href="https://github.com/davgeek/Muffinphp" title="Docs">Docs v0.1</a>
 </center>

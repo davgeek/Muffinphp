@@ -7,6 +7,13 @@ class ErrorController {
 
 	public function index()
 	{
-		return new View('error',['title' => 'Error']);
+		$view = new View('error');
+		
+		// add assets styles to view
+        $view->assets('styles',[
+            'css/styles.css',
+        ]);
+
+        return $view;
 	}
 }

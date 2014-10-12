@@ -17,8 +17,18 @@ class HomeController {
         // Instance of View
     	$view = new View('home');
 
+        // add assets styles to view
+        $view->assets('styles',[
+            'css/styles.css',
+        ]);
+
+        // add assets javascripts to view
+        $view->assets('javascripts',[
+            'js/custom.js',
+        ]);
+
         // add one var to View
-    	$view->addVar('author','Dav Lizárraga');
+    	$view->data('author','Dav Lizárraga');
 
         // Intance of User
         $user = new User();
@@ -26,8 +36,8 @@ class HomeController {
         // add user to DB.
         $user->addUser('David','dav@davgeek.com');
 
-        // add one array to View
-    	$view->addArray('numeros',['uno','dos','tres','cuatro','cinco']);
+        // add array data to View
+    	$view->dataArray('numeros',['uno','dos','tres','cuatro','cinco']);
 
         // return view instance.
         return $view; 

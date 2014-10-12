@@ -28,6 +28,9 @@ Installation
 
 Download and copy the repository on your server, the domain should point to the public folder.
 
+In /app/config/app.php
+set the URL = 'yourdomain.com' and set the other stuff, if you did not use the db, sets false in DB = false.
+
 #### Nginx Config
 ```
 server {

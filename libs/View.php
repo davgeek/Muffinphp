@@ -7,6 +7,7 @@ class View extends Response {
 
     protected $template;
     protected $vars = array();
+    protected $assets = array();
 
     /**
      * Constructor
@@ -38,24 +39,32 @@ class View extends Response {
     }
 
     /**
-     * Method addVar
+     * Method data
      * add any var to a view.
-     * @param [type] $var   [description]
-     * @param [type] $value [description]
      */
-    public function addVar($var,$value)
+    public function data($var,$value)
     {
         $this->vars[$var] = $value;
     }
 
     /**
-     * Method addArray
+     * Method dataArray
      * add any array to a view.
-     * @param [type] $var   [description]
-     * @param array  $value [description]
      */
-    public function addArray($var,$value = array() )
+    public function dataArray($var, $value = array() )
     {
+        $this->vars[$var] = $value;
+    }
+
+    /**
+     * Method assets
+     * add css's or javascript's to view.
+     */
+    public function assets($var, $value = array() )
+    {
+        for ($i=0; $i < count($value) ; $i++) { 
+            $value[$i] = URL.$value[$i];
+        }
         $this->vars[$var] = $value;
     }
 
